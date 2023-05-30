@@ -173,6 +173,8 @@ body {
 
 .about .row .about-img img {
   width: 95%;
+  border-radius: 8px 68px 8px 8px;
+  box-shadow: 12px 12px 40px 3px rgba(85, 70, 70, 0.5);
 }
 
 .about .row .content {
@@ -534,6 +536,10 @@ button:hover {
   }
   .contact .row form {
     padding-top: 0;
+  }
+
+  .container {
+    margin-top: 15%;
   }
 
   .d-flex {
