@@ -19,6 +19,15 @@ var productNameElement = document.querySelector('td.product-name');
 var price = document.querySelector('td.price');
 var input = document.getElementById('inputField');
 
+var products = {
+  Espresso: 20000,
+  Cappuccino: 18000,
+  'Coffee Latte': 20000,
+  Americano: 16000,
+  Mocha: 15000,
+  Frappe: 12000,
+};
+
 var formatter = new Intl.NumberFormat('id-ID', {
   style: 'currency',
   currency: 'IDR',
@@ -29,20 +38,8 @@ var formatter = new Intl.NumberFormat('id-ID', {
 selectProduct.addEventListener('change', function () {
   var selectedOption = selectProduct.value;
   productNameElement.textContent = selectedOption;
-
-  if (selectProduct.value === 'Espresso') {
-    price.textContent = formatter.format(20000);
-  } else if (selectProduct.value === 'Cappuccino') {
-    price.textContent = formatter.format(18000);
-  } else if (selectProduct.value === 'Coffee Latte') {
-    price.textContent = formatter.format(20000);
-  } else if (selectProduct.value === 'Americano') {
-    price.textContent = formatter.format(16000);
-  } else if (selectProduct.value === 'Mocha') {
-    price.textContent = formatter.format(15000);
-  } else if (selectProduct.value === 'Frappe') {
-    price.textContent = formatter.format(12000);
-  }
+  price.textContent = formatter.format(products[selectedOption]);
+  updateSubtotal();
 });
 
 function increment() {
@@ -67,19 +64,6 @@ function updateSubtotal() {
 }
 
 function getProductPrice() {
-  if (selectProduct.value === 'Espresso') {
-    return 20000;
-  } else if (selectProduct.value === 'Cappuccino') {
-    return 18000;
-  } else if (selectProduct.value === 'Coffee Latte') {
-    return 20000;
-  } else if (selectProduct.value === 'Americano') {
-    return 16000;
-  } else if (selectProduct.value === 'Mocha') {
-    return 15000;
-  } else if (selectProduct.value === 'Frappe') {
-    return 12000;
-  } else {
-    return 0;
-  }
+  var selectedOption = selectProduct.value;
+  return products[selectedOption] || 0;
 }
