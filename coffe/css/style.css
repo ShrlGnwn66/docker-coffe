@@ -337,7 +337,7 @@ footer .credit a {
   display: flex;
   flex-direction: row;
   background: #b48454;
-  border-radius: 0 0 5px 5px;
+  border-radius: 10px;
   padding: 25px;
 }
 
@@ -365,14 +365,17 @@ h2 {
   margin: 0;
   padding-left: 15px;
 }
+
 .required {
   color: red;
 }
+
 label,
 table {
   display: block;
   margin: 15px;
 }
+
 label > span {
   font-size: 1.2rem;
   float: left;
@@ -381,9 +384,7 @@ label > span {
   padding-right: 10px;
 }
 
-.form-order input[type='text'],
-input[type='tel'],
-input[type='email'],
+.form-order input,
 select {
   width: 70%;
   height: 30px;
@@ -410,7 +411,7 @@ select {
 }
 
 table {
-  margin: 0;
+  margin: auto;
   padding: 0;
 }
 
@@ -419,28 +420,57 @@ th {
   padding: 10px 0;
 }
 
-tr > td:nth-child(1) {
+td {
+  min-width: 150px;
+  border-bottom: 1px solid #dadada;
+  padding: 15px 15px 15px 0;
+}
+
+td:nth-child(1) {
+  width: 70%; /* Misalnya, dapat diubah sesuai kebutuhan */
   text-align: left;
   font-size: 1.2rem;
 }
 
-tr > td:nth-child(2) {
+td:nth-child(2) {
+  width: 30%; /* Misalnya, dapat diubah sesuai kebutuhan */
   font-size: 1.2rem;
   text-align: right;
-  color: #52ad9c;
-}
-
-td {
-  width: 100%;
-  border-bottom: 1px solid #dadada;
-  padding: 25px 25px 25px 0;
+  color: #73ffe3;
 }
 
 .Yorder > div {
   padding: 15px 0;
 }
 
-button {
+.count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.count .count-button {
+  padding: 0 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: #52ad9c;
+  border-radius: 20px;
+}
+
+.count .count-button:hover {
+  cursor: pointer;
+  background: #428a7d;
+}
+
+.count input {
+  height: 25px;
+  width: 50px;
+  text-align: center;
+  margin: 0 10px 0 10px;
+  border-radius: 30px;
+}
+
+.order-button {
   width: 100%;
   margin-top: 10px;
   padding: 10px;
@@ -452,7 +482,7 @@ button {
   font-weight: bold;
 }
 
-button:hover {
+.order-button:hover {
   cursor: pointer;
   background: #428a7d;
 }

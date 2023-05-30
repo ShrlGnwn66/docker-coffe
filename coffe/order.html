@@ -58,7 +58,7 @@
           </label>
           <label>
             <span>Nomor Duduk <span class="required">*</span></span>
-            <input type="text" name="no duduk" placeholder="Nomor Duduk..." required />
+            <input type="number" name="no duduk" placeholder="Nomor Duduk..." required />
           </label>
           <label>
             <span>Pesanan Kopi <span class="required">*</span></span>
@@ -87,17 +87,21 @@
               <th colspan="2" class="title_your_order">Your order</th>
             </tr>
             <tr>
-              <td>Product Name x 2(Qty)</td>
-              <td>$88.00</td>
+              <td class="product-name" id="product-name">Pilih Kopi</td>
+              <td class="price">Rp00</td>
             </tr>
             <tr>
               <td>Subtotal</td>
-              <td>$88.00</td>
+              <td id="subtotal" class="total">Rp 88.00</td>
             </tr>
           </table>
           <br />
-          <!-- <div><input type="radio" name="dbt" value="dbt" checked /> Direct Bank Transfer</div> -->
-          <button type="button">Place Order</button>
+          <div class="count">
+            <button class="count-button" onclick="increment()">+</button>
+            <input type="text" id="inputField" value="1" />
+            <button class="count-button" onclick="decrement()">-</button>
+          </div>
+          <button class="order-button" type="button">Place Order</button>
         </div>
         <!-- Yorder -->
       </div>
@@ -130,5 +134,8 @@
       </div>
     </footer>
     <!-- Footer End -->
+
+    <!-- Javascript  -->
+    <script src="js/script.js"></script>
   </body>
 </html>
