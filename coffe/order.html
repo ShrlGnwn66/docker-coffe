@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
-      rel="stylesheet" />
+      rel="stylesheet"
+    />
 
     <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
@@ -56,15 +57,20 @@
         <div class="form-order" action="" method="">
           <label>
             <span class="name">Nama <span class="required">*</span></span>
-            <input type="text" name="name" placeholder="Nama..." />
+            <input type="text" name="name" placeholder="Nama..." required />
           </label>
           <label>
             <span>Nomor Kursi <span class="required">*</span></span>
-            <input type="number" name="kursi" placeholder="Nomor Kursi..." required />
+            <input
+              type="number"
+              name="kursi"
+              placeholder="Nomor Kursi..."
+              required
+            />
           </label>
           <label>
             <span>Pesanan Kopi <span class="required">*</span></span>
-            <select name="selection">
+            <select name="selection" required>
               <option value="select" disabled selected>Pilih Kopi...</option>
               <option value="Espresso">Espresso</option>
               <option value="Cappuccino">Cappuccino</option>
@@ -75,11 +81,11 @@
             </select>
           </label>
           <label>
-            <span>Phone <span class="required">*</span></span>
+            <span>Phone</span>
             <input type="tel" name="" placeholder="Telephone ..." />
           </label>
           <label>
-            <span>Email Address <span class="required">*</span></span>
+            <span>Email Address</span>
             <input type="email" name="city" placeholder="Email ..." />
           </label>
         </div>
