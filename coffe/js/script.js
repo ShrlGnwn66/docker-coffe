@@ -14,12 +14,12 @@ document.addEventListener('click', function (e) {
 });
 
 // select product
-var selectProduct = document.querySelector('select[name="selection"]');
-var productNameElement = document.querySelector('td.product-name');
-var price = document.querySelector('td.price');
-var input = document.getElementById('inputField');
+const selectProduct = document.querySelector('select[name="selection"]');
+const productNameElement = document.querySelector('td.product-name');
+const price = document.querySelector('td.price');
+const input = document.getElementById('inputField');
 
-var products = {
+const products = {
   Espresso: 20000,
   Cappuccino: 18000,
   'Coffee Latte': 20000,
@@ -28,7 +28,7 @@ var products = {
   Frappe: 12000,
 };
 
-var formatter = new Intl.NumberFormat('id-ID', {
+const formatter = new Intl.NumberFormat('id-ID', {
   style: 'currency',
   currency: 'IDR',
   minimumFractionDigits: 0,
@@ -36,20 +36,20 @@ var formatter = new Intl.NumberFormat('id-ID', {
 });
 
 selectProduct.addEventListener('change', function () {
-  var selectedOption = selectProduct.value;
+  let selectedOption = selectProduct.value;
   productNameElement.textContent = selectedOption;
   price.textContent = formatter.format(products[selectedOption]);
   updateSubtotal();
 });
 
 function increment() {
-  var value = parseInt(input.value) || 0;
+  let value = parseInt(input.value) || 0;
   input.value = value + 1;
   updateSubtotal();
 }
 
 function decrement() {
-  var value = parseInt(input.value) || 0;
+  let value = parseInt(input.value) || 0;
   if (value > 1) {
     input.value = value - 1;
   }
@@ -57,13 +57,13 @@ function decrement() {
 }
 
 function updateSubtotal() {
-  var value = parseInt(input.value) || 0;
-  var subtotal = value * getProductPrice();
-  var formattedSubtotal = formatter.format(subtotal);
+  let value = parseInt(input.value) || 0;
+  let subtotal = value * getProductPrice();
+  let formattedSubtotal = formatter.format(subtotal);
   document.getElementById('subtotal').textContent = formattedSubtotal;
 }
 
 function getProductPrice() {
-  var selectedOption = selectProduct.value;
+  let selectedOption = selectProduct.value;
   return products[selectedOption] || 0;
 }
