@@ -105,15 +105,15 @@
       $gambar_produk = $row['gambar_produk'];
 
       echo '
-              <div class="menu-card">
-                <img
-                  src="' . $gambar_produk . '"
-                  alt="' . $nama_produk . '."
-                  class="menu-card-img"
-                />
-                <h3 class="menu-card-title">- ' . $nama_produk . ' -</h3>
-                <p class="menu-card-price">IDR ' . $harga_produk . '</p>
-              </div>
+          <div class="menu-card">
+            <img
+              src="' . $gambar_produk . '"
+              alt="' . $nama_produk . '."
+              class="menu-card-img"
+            />
+            <h3 class="menu-card-title">- ' . $nama_produk . ' -</h3>
+            <p class="menu-card-price">IDR ' . $harga_produk . '</p>
+          </div>
           ';
     }
     echo '</div>';
