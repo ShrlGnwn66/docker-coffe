@@ -168,6 +168,10 @@
     $email = $_REQUEST['email'];
     $phone = $_REQUEST['phone'];
     $pesan = $_REQUEST['pesan'];
+
+    // Waktu GMT +7
+    date_default_timezone_set('Asia/Jakarta');
+
     $waktu = date('Y-m-d H:i:s');
     $query = mysqli_query($connect, "INSERT INTO saran (nama, email, phone, pesan, waktu) VALUES ('$nama', '$email', '$phone', '$pesan', '$waktu')");
     if ($query) {

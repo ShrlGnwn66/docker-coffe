@@ -50,27 +50,40 @@
     <div class="title">
       <h2>Silahkan Pilih <span>Pesanan anda</span></h2>
     </div>
+
+    <!-- Form Order Start -->
     <form class="d-flex">
       <div class="form-order" action="" method="POST">
         <label>
           <span class="name">Nama <span class="required">*</span></span>
-          <input type="text" name="name" placeholder="Nama..." required />
+          <input type="text" name="nama" placeholder="Nama..." required />
         </label>
         <label>
           <span>Nomor Kursi <span class="required">*</span></span>
-          <input type="number" name="kursi" placeholder="Nomor Kursi..." required />
+          <input type="number" name="nomor_kursi" placeholder="Nomor Kursi..." required />
         </label>
         <label>
           <span>Pesanan Kopi <span class="required">*</span></span>
-          <select name="selection" required>
+          <!-- Menu Dinamis From DB start -->
+          <?php
+          $connect = new mysqli('mysql_db', 'root', 'root', 'coffe');
+          $getproduct = "SELECT * FROM produk";
+          $result = mysqli_query($connect, $getproduct);
+          ?>
+          <select id="selection" name="menu" required>
             <option value="select" disabled selected>Pilih Kopi...</option>
-            <option value="Espresso">Espresso</option>
-            <option value="Cappuccino">Cappuccino</option>
-            <option value="Coffee Latte">Coffee Latte</option>
-            <option value="Americano">Americano</option>
-            <option value="Mocha">Mocha</option>
-            <option value="Frappe">Frappe</option>
+            <?php
+            // Loop melalui hasil query dan menampilkan opsi pilihan
+            while ($row = mysqli_fetch_assoc($result)) {
+              $id = $row['id'];
+              $nama_produk = $row['nama_produk'];
+              echo '<option value="' . $id . '">' . $nama_produk . '</option>';
+            }
+            mysqli_close($connect);
+            ?>
           </select>
+          <!-- Menu Dinamis From DB End -->
+
         </label>
         <label>
           <span>Phone</span>
@@ -90,7 +103,7 @@
           </tr>
           <tr>
             <td class="product-name" id="product-name">Pilih Kopi</td>
-            <td class="price">Rp00</td>
+            <td class="price" id="price">Rp00</td>
           </tr>
           <tr>
             <td>Subtotal</td>
@@ -107,6 +120,7 @@
       </div>
       <!-- Yorder -->
     </form>
+    <!-- Form Order End -->
   </div>
   <!-- body Order end -->
 
@@ -142,3 +156,12 @@
 </body>
 
 </html>
+
+
+<?php
+$connect = new mysqli('mysql_db', 'root', 'root', 'coffe');
+
+
+
+
+?>
