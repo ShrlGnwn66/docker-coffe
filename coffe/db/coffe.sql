@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql_db
--- Generation Time: Jun 04, 2023 at 05:23 PM
+-- Generation Time: Jun 09, 2023 at 08:00 AM
 -- Server version: 8.0.33
 -- PHP Version: 8.1.19
 
@@ -48,7 +48,7 @@ CREATE TABLE `pesanan` (
 CREATE TABLE `produk` (
   `id_produk` int NOT NULL,
   `nama_produk` varchar(100) NOT NULL,
-  `harga_produk` decimal(50,0) NOT NULL,
+  `harga_produk` int NOT NULL,
   `gambar_produk` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

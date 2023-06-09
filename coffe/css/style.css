@@ -271,6 +271,13 @@ body {
   background: none;
   color: #fff;
 }
+.contact .row form .input-group .message {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.7rem;
+  background: none;
+  color: #fff;
+}
 
 .contact .row form .btn {
   margin-top: 3rem;

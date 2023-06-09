@@ -14,66 +14,58 @@ document.addEventListener("click", function (e) {
 });
 
 // select product
-const selectProduct = document.querySelector('select[name="selection"]');
+const selectProduct = document.querySelector('select[name="menu"]');
 const productNameElement = document.querySelector("td.product-name");
 const price = document.querySelector("td.price");
 const input = document.getElementById("inputField");
+let products = {}; // Variable untuk menyimpan data produk
 
 // Ambil data Menggunakan fetch API
 fetch("http://localhost:9000/getData.php")
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
-    // menyimpan data ke variable product
-    const products = data;
+    // menyimpan data ke variable products
+    products = data;
 
-    // coba
-    document.addEventListener("DOMContentLoaded", function () {
-      const selectProduct = document.getElementById("selection");
-      const productNameElement = document.getElementById("product-name");
-      const price = document.getElementById("price");
-      const input = document.getElementById("inputField");
-
-      // eksekusi data
-      const formatter = new Intl.NumberFormat("id-ID", {
-        style: "currency",
-        currency: "IDR",
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0,
-      });
-
-      selectProduct.addEventListener("change", function () {
-        let selectedOption = selectProduct.value;
-        productNameElement.textContent = selectedOption;
-        price.textContent = formatter.format(products[selectedOption]);
-        updateSubtotal();
-      });
-
-      function increment() {
-        let value = parseInt(input.value) || 0;
-        input.value = value + 1;
-        updateSubtotal();
-      }
-
-      function decrement() {
-        let value = parseInt(input.value) || 0;
-        if (value > 1) {
-          input.value = value - 1;
-        }
-        updateSubtotal();
-      }
-
-      function updateSubtotal() {
-        let value = parseInt(input.value) || 0;
-        let subtotal = value * getProductPrice();
-        let formattedSubtotal = formatter.format(subtotal);
-        document.getElementById("subtotal").textContent = formattedSubtotal;
-      }
-
-      function getProductPrice() {
-        let selectedOption = selectProduct.value;
-        return products[selectedOption] || 0;
-      }
+    // eksekusi data
+    selectProduct.addEventListener("change", function () {
+      let selectedOption = selectProduct.value;
+      productNameElement.textContent = selectedOption;
+      price.textContent = formatter.format(products[selectedOption]);
+      updateSubtotal();
     });
   })
   .catch((error) => console.log(error));
+
+const formatter = new Intl.NumberFormat("id-ID", {
+  style: "currency",
+  currency: "IDR",
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
+});
+
+function updateSubtotal() {
+  let value = parseInt(input.value) || 0;
+  let subtotal = value * getProductPrice();
+  let formattedSubtotal = formatter.format(subtotal);
+  document.getElementById("subtotal").textContent = formattedSubtotal;
+}
+
+function getProductPrice() {
+  let selectedOption = selectProduct.value;
+  return products[selectedOption] || 0;
+}
+
+function increment() {
+  let value = parseInt(input.value) || 0;
+  input.value = value + 1;
+  updateSubtotal();
+}
+
+function decrement() {
+  let value = parseInt(input.value) || 0;
+  if (value > 0) {
+    input.value = value - 1;
+    updateSubtotal();
+  }
+}

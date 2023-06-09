@@ -75,9 +75,8 @@
             <?php
             // Loop melalui hasil query dan menampilkan opsi pilihan
             while ($row = mysqli_fetch_assoc($result)) {
-              $id = $row['id'];
               $nama_produk = $row['nama_produk'];
-              echo '<option value="' . $id . '">' . $nama_produk . '</option>';
+              echo '<option value="' .  $nama_produk . '">' . $nama_produk . '</option>';
             }
             mysqli_close($connect);
             ?>

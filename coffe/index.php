@@ -148,7 +148,7 @@
         </div>
         <div class="input-group">
           <i data-feather="message-square"></i>
-          <input type="text" name="pesan" placeholder="Message" />
+          <textarea class="message" name="pesan" placeholder="Message" rows="1" cols="80"></textarea>
         </div>
         <button type="submit" name="submit" class="btn">Kirim Pesan</button>
       </form>
