@@ -120,7 +120,6 @@
     mysqli_close($connect);
     ?>
   </section>
-
   <!-- Menu Section End -->
 
   <!-- Contact Section Start-->
@@ -160,7 +159,6 @@
   <?php
   // Connect to DB 
   $connect = new mysqli('mysql_db', 'root', 'root', 'coffe');
-
 
   // Bagian insert Form Saran
   if (isset($_POST['submit'])) {

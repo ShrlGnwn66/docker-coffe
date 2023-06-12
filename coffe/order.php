@@ -52,8 +52,8 @@
     </div>
 
     <!-- Form Order Start -->
-    <form class="d-flex">
-      <div class="form-order" action="" method="POST">
+    <form class="d-flex" method="post" action="">
+      <div class="form-order">
         <label>
           <span class="name">Nama <span class="required">*</span></span>
           <input type="text" name="nama" placeholder="Nama..." required />
@@ -102,20 +102,20 @@
           </tr>
           <tr>
             <td class="product-name" id="product-name">Pilih Kopi</td>
-            <td class="price" id="price">Rp00</td>
+            <td class="price" id="price" name="harga">Rp00</td>
           </tr>
           <tr>
             <td>Subtotal</td>
-            <td id="subtotal" class="total">Rp00</td>
+            <td id="subtotal" class="total" name="subtotal">Rp00</td>
           </tr>
         </table>
         <br />
         <div class="count">
           <div class="count-button" onclick="increment()">+</div>
-          <input type="text" id="inputField" value="1" readonly />
+          <input type="text" id="inputField" name="quantity" value="1" readonly />
           <div class="count-button" onclick="decrement()">-</div>
         </div>
-        <button class="order-button" type="submit">Order Now</button>
+        <button class="order-button" type="submit" name="order">Order Now</button>
       </div>
       <!-- Yorder -->
     </form>
@@ -156,11 +156,30 @@
 
 </html>
 
-
+<!-- Kirim data dari Form ke DB -->
 <?php
+// Connect to DB 
 $connect = new mysqli('mysql_db', 'root', 'root', 'coffe');
 
+// Bagian insert Form Saran
+if (isset($_POST['order'])) {
+  $nama = $_REQUEST['nama'];
+  $nomor_kursi = $_REQUEST['nomor_kursi'];
+  $menu = $_REQUEST['menu'];
+  $phone = $_REQUEST['phone'];
+  $email = $_REQUEST['email'];
+  $quantity = $_REQUEST['quantity'];
 
+  // Waktu GMT +7
+  date_default_timezone_set('Asia/Jakarta');
+  $waktu_pesanan = date('Y-m-d H:i:s');
 
-
+  $query = mysqli_query($connect, "INSERT INTO pesanan (nama, nomor_kursi, menu, phone, email, quantity, waktu_pesanan) VALUES ('$nama', '$nomor_kursi', '$menu', '$phone', '$email', '$quantity', '$waktu_pesanan')");
+  if ($query) {
+    echo "<script>alert('Pesanan anda berhasil terkirim, tunggu hingga pesanan datang.'); window.location = 'index.php';</script>";
+  } else {
+    echo "<script>alert('Pesanan anda gagal terkirim, coba kembali.')</script>" . mysqli_error($connect);
+  }
+}
+mysqli_close($connect);
 ?>

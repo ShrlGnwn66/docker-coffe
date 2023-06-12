@@ -1,8 +1,6 @@
 <?php
 // Koneksi ke database
 $connect = new mysqli('mysql_db', 'root', 'root', 'coffe');
-
-// Periksa koneksi
 if ($connect->connect_error) {
   die("Koneksi ke database gagal: " . $connect->connect_error);
 }
@@ -11,16 +9,12 @@ if ($connect->connect_error) {
 $query = "SELECT nama_produk, harga_produk FROM produk";
 $result = $connect->query($query);
 
-// Simpan data dalam array
+// Menyimpan data ke array
 $data = array();
 while ($row = $result->fetch_assoc()) {
   $data[$row['nama_produk']] = $row['harga_produk'];
 }
 
-
-// Konversi ke JSON dan kirimkan sebagai respon
+// Konversi ke JSON 
 echo json_encode($data);
-
-// Tutup koneksi ke database
 $connect->close();
-?>
