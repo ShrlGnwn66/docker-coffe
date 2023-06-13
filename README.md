@@ -9,8 +9,3 @@ Catatan :
    # volumes:
    # - ./mysql_data:/var/lib/mysql #Ini untuk menyimpan data mysql agar tidak import ulang.
 
-PR.
-
-0. Memfungsikan JS your order
-1. Connect form Order to Database
-2. bagaimana cara memberi name pada YourOrder
