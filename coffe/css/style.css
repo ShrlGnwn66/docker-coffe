@@ -126,7 +126,7 @@ body {
   color: var(--primary);
 }
 
-.hero .content p {
+.hero .content {
   font-size: 1.6rem;
   margin-top: 1rem;
   line-height: 1.5;
@@ -140,6 +140,7 @@ body {
   display: inline-block;
   padding: 1rem 3rem;
   font-size: 1.2rem;
+  font-weight: 400;
   color: #fff;
   background-color: var(--primary);
   border-radius: 0.5rem;
@@ -177,6 +178,8 @@ body {
 
 .about .row .about-img img {
   width: 95%;
+  border-radius: 8px 68px 8px 8px;
+  box-shadow: 12px 12px 40px 3px rgba(85, 70, 70, 0.5);
 }
 
 .about .row .content {
@@ -191,8 +194,8 @@ body {
 
 .about .row .content p {
   margin-bottom: 0.8rem;
-  font-size: 1.4rem;
-  font-weight: 275;
+  font-size: 1.2rem;
+  font-weight: 300;
   line-height: 1.6;
 }
 
@@ -207,8 +210,9 @@ body {
   text-align: center;
   max-width: 30rem;
   margin: auto;
-  font-weight: 275;
+  font-weight: 350;
   line-height: 1.6;
+  font-size: 1.1rem;
 }
 
 .menu .row {
@@ -267,6 +271,13 @@ body {
   background: none;
   color: #fff;
 }
+.contact .row form .input-group .message {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.7rem;
+  background: none;
+  color: #fff;
+}
 
 .contact .row form .btn {
   margin-top: 3rem;
@@ -276,6 +287,7 @@ body {
   color: #fff;
   background-color: var(--primary);
   cursor: pointer;
+  border-radius: 0.5rem;
 }
 
 /* Footer */
@@ -317,6 +329,176 @@ footer .credit {
 footer .credit a {
   color: var(--bg);
   font-weight: 700;
+}
+
+/* Order style */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10%;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.d-flex {
+  display: flex;
+  flex-direction: row;
+  background: #b48454;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.form-order {
+  flex: 4;
+}
+
+.Yorder {
+  flex: 2;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.title span {
+  color: var(--primary);
+}
+
+h2 {
+  margin: 0;
+  padding-left: 15px;
+}
+
+.required {
+  color: red;
+}
+
+label,
+table {
+  display: block;
+  margin: 15px;
+}
+
+label > span {
+  font-size: 1.2rem;
+  float: left;
+  width: 25%;
+  margin-top: 12px;
+  padding-right: 10px;
+}
+
+.form-order input,
+select {
+  width: 70%;
+  height: 40px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #dadada;
+  color: #362828;
+}
+
+select {
+  height: 45px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+.Yorder {
+  margin-top: 15px;
+  padding: 20px;
+  border: 1px solid #dadada;
+}
+
+.title_your_order {
+  font-size: 1.5rem;
+}
+
+table {
+  margin: auto;
+  padding: 0;
+}
+
+th {
+  border-bottom: 1px solid #dadada;
+  padding: 10px 0;
+}
+
+td {
+  min-width: 150px;
+  border-bottom: 1px solid #dadada;
+  padding: 15px 15px 15px 0;
+}
+
+td:nth-child(1) {
+  width: 70%; /* Misalnya, dapat diubah sesuai kebutuhan */
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+td:nth-child(2) {
+  width: 30%; /* Misalnya, dapat diubah sesuai kebutuhan */
+  font-size: 1.2rem;
+  text-align: right;
+  color: #73ffe3;
+}
+
+.Yorder > div {
+  padding: 15px 0;
+}
+
+.count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.count .count-button {
+  padding: 0 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: #52ad9c;
+  border-radius: 20px;
+}
+
+.count .count-button:hover {
+  cursor: pointer;
+  background: #428a7d;
+}
+
+.count input {
+  height: 25px;
+  width: 50px;
+  text-align: center;
+  margin: 0 10px 0 10px;
+  border-radius: 30px;
+}
+
+.order-button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  background: #52ad9c;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.order-button:hover {
+  cursor: pointer;
+  background: #428a7d;
 }
 
 /* Media Queries For Rensponsive */
@@ -399,10 +581,23 @@ footer .credit a {
   .contact .row form {
     padding-top: 0;
   }
+
+  .container {
+    margin-top: 15%;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    padding: 5px;
+  }
 }
 
 @media (max-width: 450px) {
   html {
     font-size: 55%;
+  }
+
+  .container {
+    margin-top: 20%;
   }
 }
